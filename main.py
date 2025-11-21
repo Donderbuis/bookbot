@@ -1,6 +1,7 @@
 # Python executable main file
 
 from stats import book_word_count, book_char_occurences, sort_char_occurences
+import sys
 
 def get_book_text(path_to_file: str) -> str:
 
@@ -10,7 +11,11 @@ def get_book_text(path_to_file: str) -> str:
 
 def main():
 
-    path_to_book = "books/frankenstein.txt"
+    if 2 > len(sys.argv):
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    path_to_book = sys.argv[1]
     book_text = get_book_text(path_to_book)
     word_count = book_word_count(book_text)
     char_occurences: dict[str, int] = book_char_occurences(book_text)
