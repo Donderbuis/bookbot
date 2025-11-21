@@ -1,0 +1,3 @@
+[tool.basedpyright]
+include = ["."]
+pythonVersion = "3.13.7"
